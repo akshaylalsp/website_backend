@@ -32,13 +32,15 @@ def register_view(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
+            print('registration sucess')
             form.save()
             return redirect('login')  # Redirect to a login page or a success page
         else:
+            print('Registration not success. Errors:', form.errors)
             print('registration not success')
-    else:
-        form = UserRegistrationForm()
 
+
+    print('not post method')
     return render(request, 'register.html') 
 
 def logout_view(request):

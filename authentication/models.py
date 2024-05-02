@@ -14,7 +14,7 @@ class UserRegistration(AbstractUser):
         (MECH, 'Mechanical'),
     ]
 
-    department = models.CharField(max_length=100, choices=DEPARTMENT_CHOICES)
+    department = models.CharField(max_length=100)
     registration_number = models.CharField(max_length=100)
     admission_number = models.CharField(max_length=100)
     cgpa = models.FloatField()
