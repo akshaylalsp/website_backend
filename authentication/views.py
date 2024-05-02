@@ -16,13 +16,15 @@ def login_view(request):
             if user is not None:
                 # If authentication is successful, log the user in
                 login(request, user)
+                print("login sucess")
                 return redirect('home')  # Redirect to a specific page after login
             else:
+                print("login error")
                 form.add_error(None, "Invalid username or password.")  # Add an error if authentication fails
     else:
-        form = LoginForm()
+        print("not post method")
 
-    return render(request, 'login_test.html', {'form': form})
+    return render(request, 'login.html')
 
 
 
@@ -37,7 +39,7 @@ def register_view(request):
     else:
         form = UserRegistrationForm()
 
-    return render(request, 'register_test.html', {'form': form}) 
+    return render(request, 'register.html') 
 
 def logout_view(request):
     pass
